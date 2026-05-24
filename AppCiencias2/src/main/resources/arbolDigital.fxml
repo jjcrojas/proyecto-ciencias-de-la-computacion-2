@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="digitalPanel" maxWidth="690.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ArbolDigitalController">
+    <stylesheets>
+        <URL value="@/styles.css" />
+    </stylesheets>
+    <children>
+        <VBox alignment="CENTER" spacing="12">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+                  <!-- Entrada de mensaje -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label text="Mensaje:" />
+                <TextField fx:id="mensajeField" promptText="Ej: MURCIELAGO" />
+                <Button onAction="#procesarMensaje" text="Procesar" />
+                <Button onAction="#initialize" text="Reiniciar" />
+            </HBox>
+
+                  <!-- Buscar letra -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label text="Buscar letra:" />
+                <TextField fx:id="buscarField" promptText="Ej: A" />
+                <Button onAction="#buscarClave" text="Buscar" />
+                <Button onAction="#clearSearch" text="Limpiar búsqueda" />
+            </HBox>
+
+                  <!-- Tabla de códigos binarios -->
+            <TableView fx:id="tablaCodigos" prefHeight="200" prefWidth="800">
+                <columns>
+                    <TableColumn fx:id="colLetra" prefWidth="100" text="Letra" />
+                    <TableColumn fx:id="colPos" prefWidth="100" text="Posición" />
+                    <TableColumn fx:id="colBinario" prefWidth="200" text="Código Binario" />
+                </columns>
+            </TableView>
+
+                  <!-- Resultado -->
+            <Label fx:id="resultadoLabel" style="-fx-font-size: 14px; -fx-text-fill: #2262C6;" text="Listo." />
+
+                  <!-- Visualización del árbol -->
+            <Pane fx:id="arbolPane" prefHeight="300.0" prefWidth="1280.0" style="-fx-background-color: #fff;" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </children>
+</AnchorPane>
